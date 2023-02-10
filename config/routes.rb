@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :products
-  root "posts#index"
-  resources :posts
+  root "microcnc/posts#index"
+
+  namespace :microgreens do
+    resources :products
+  end
+
+  namespace :microcnc do
+    resources :posts
+  end
 end

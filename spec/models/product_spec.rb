@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "can be created" do
+    post = Post.create title: "Test Post"
+    expect( post ).to be_a Post
+  end
 end
