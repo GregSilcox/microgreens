@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "microcnc/posts#index"
+  
+  devise_for :users
 
   namespace :microgreens do
     resources :products
