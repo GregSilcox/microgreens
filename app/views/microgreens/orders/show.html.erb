@@ -6,17 +6,20 @@
 
     <%= render @model %>
 
-    <%= link_to 'Edit this product', 
-      edit_microgreens_product_path(@model), 
+    <%= link_to 'Edit this order', 
+      edit_microgreens_order_path(@model), 
       class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this product',
-        microgreens_product_path(@model), 
+      <%= button_to 'Destroy this order',
+        microgreens_order_path(@model), 
         method: :delete, 
         class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      
     </div>
-    <%= link_to 'Back to products', 
-      microgreens_products_path, 
+
+    <%= link_to 'Back to orders', 
+      microgreens_orders_path, 
       class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
