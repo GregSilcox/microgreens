@@ -1,0 +1,22 @@
+<div id="<%= dom_id donation %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Amount:</strong>
+    <%= donation.amount %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Donated at:</strong>
+    <%= donation.donated_at %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Kind:</strong>
+    <%= donation.kind %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this donation", donation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this donation', edit_donation_path(donation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

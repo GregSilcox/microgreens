@@ -7,6 +7,7 @@ module ModelsController
     # actions
     def index
       @models = model_constant.all
+      authorize model_constant
     end
 
     def show
@@ -14,10 +15,12 @@ module ModelsController
 
     def new
       @model = model_constant.new
+      authorize @model
     end
 
     def create
       @model = model_constant.new(model_params)
+      authorize @model
 
       respond_to do |format|
         if @model.save
@@ -72,6 +75,7 @@ module ModelsController
 
     def find_model
       @model = model_constant.find params[:id]
+      authorize @model
     end
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :donations
   resources :line_items
   resources :orders
   root "microgreens/products#index"

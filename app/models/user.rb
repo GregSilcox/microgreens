@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   has_many :orders
+
+  def admin?
+    email == "greg.silcox@gmail.com"
+  end
 end
