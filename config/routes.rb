@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :greens
+  resources :fulfillments
   resources :donations
   resources :line_items
   resources :orders

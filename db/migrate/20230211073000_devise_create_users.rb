@@ -6,6 +6,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       ## Database authenticatable
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
+
+      # Maybe we want an Account with several users, some are account_admins
+      # This should be for site_admins
       t.boolean :admin,              null: false, default: false
 
       ## Recoverable

@@ -1,0 +1,32 @@
+<div id="<%= dom_id green %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= green.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= green.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Nutrition:</strong>
+    <%= green.nutrition %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Apperance:</strong>
+    <%= green.apperance %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Flavor:</strong>
+    <%= green.flavor %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this green", green, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this green', edit_green_path(green), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

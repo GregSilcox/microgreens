@@ -1,7 +1,10 @@
 class Donation < ApplicationRecord
   KINDS = [:check, :card, :cash].freeze
-  validate :kind, in: KINDS
-  validate :amount, gt: 0.00
 
-  before_create { |d| d.datetime = Time.now }
+  validates :kind, inclusion: { in: KINDS }
+  validates :amount, numericality: { greater_than: 0.00 }
+
+  # Since the donation may occur separately from the entry being created,
+  # this probably shouldn't be a callback.
+  # before_create -> { self.donated_at = Time.current }
 end
