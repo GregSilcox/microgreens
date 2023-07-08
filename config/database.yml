@@ -81,6 +81,5 @@ test:
 #
 production:
   <<: *default
-  database: microgreens_production
-  username: microgreens
-  password: <%= ENV["MICROGREENS_DATABASE_PASSWORD"] %>
+  database: <%= ENV["DATABASE"] %>
+

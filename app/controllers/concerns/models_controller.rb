@@ -7,7 +7,7 @@ module ModelsController
     # actions
     def index
       @models = model_constant.all
-      authorize model_constant
+      authorize [:microgreens, model_constant]
     end
 
     def show

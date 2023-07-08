@@ -5,10 +5,10 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Donations</h1>
-    <%= link_to 'New donation', new_donation_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New donation', new_microgreens_donation_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="donations" class="min-w-full">
-    <%= render @donations %>
+    <%= render @models %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 module Microgreens
-  class OrderPolicy < ApplicationPolicy
+  class DonationPolicy < ApplicationPolicy
     class Scope
       def resolve
         user.admin? ? scope.all : scope.where( user_id: user.id )

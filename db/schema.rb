@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_13_163350) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_213016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.datetime "donated_at"
+    t.string "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "fulfillments", force: :cascade do |t|
+    t.datetime "fulfilled_at"
+    t.string "kind"
+    t.bigint "line_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_item_id"], name: "index_fulfillments_on_line_item_id"
+  end
+
+  create_table "greens", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "nutrition"
+    t.text "apperance"
+    t.text "flavor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "line_items", force: :cascade do |t|
     t.bigint "order_id", null: false
@@ -77,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_163350) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "donations", "users"
+  add_foreign_key "fulfillments", "line_items"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "orders", "users"
