@@ -1,21 +1,19 @@
 <div class="w-full max-w-xs m-auto bg-green-100 rounded p-5">
-  <h2 class="text-4xl font-bold">Log in</h2>
+  <h2 class="mb-4 text-4xl font-bold">Sign in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email, 
-        class: "block text-2xl text-green-700" %><br />
+      <%= f.label :email %><br />
       <%= f.email_field :email, 
-        class: "w-full text-green-700 border-b-2 boarder-green-200 outline-none focus:bg-green-300", 
+        class: "mb-2 w-full text-green-700 border-b-2 border-green-200 outline-none focus:bg-green-300", 
         autofocus: true, 
         autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, 
-        class: "block text-2xl text-green-700" %><br />
+      <%= f.label :password %><br />
       <%= f.password_field :password, 
-        class: "w-full text-green-700 border-b-2 boarder-green-200 outline-none focus:bg-gray-300", 
+        class: "mb-2 w-full text-green-700 border-b-2 boarder-green-200 outline-none focus:bg-gray-300", 
         autocomplete: "current-password" %>
     </div>
 
@@ -27,8 +25,8 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in", 
-        class: "w-full bg-green-700 hover:bg-pink-700 text-white font-bold py-2 px-4 mb-6 rounded" %>
+      <%= f.submit "Sign in", 
+        class: "mt-4 w-full bg-green-700 hover:bg-pink-700 text-white font-bold py-2 px-4 mb-6 rounded" %>
     </div>
   <% end %>
 

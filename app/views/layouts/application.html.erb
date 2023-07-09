@@ -13,7 +13,7 @@
 
   <body>
     <nav class="flex items-center justify-between flex-wrap bg-teal-600 p-6">
-      <div class="float-left>
+      <div class="float-left">
         <div id="name" class="flex float-left first-letter:items-center flex-shrink-0 text-white mr-6">
           <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/>
@@ -59,11 +59,6 @@
             <div class="mr-4">|</div>
             <%= link_to 'Sign Up', new_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
           <%- end %>
-        </div>
-
-        <div id="Information" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto float-left">
-          <%= link_to 'Settings', root_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-          <%= link_to 'Notifications', root_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
         </div>
       </div>
     </nav>

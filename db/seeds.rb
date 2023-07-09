@@ -12,7 +12,7 @@ admin = User.find_or_create_by(email: 'greg.silcox@gmail.com') do |user|
   user.admin = true
 end
 
-donor = User.find_or_create_by(email: 'g_silcox@gmail.com') do |user|
+donor = User.find_or_create_by(email: 'greg.silcox+donor@gmail.com') do |user|
   user.password = 'Hardword.7726'
   user.password_confirmation = 'Hardword.7726'
   user.admin = false
