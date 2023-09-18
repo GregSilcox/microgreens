@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  resources :greens
-  root "microgreens/products#index"
+  root "microgreens/homes#show"
   
   devise_for :users
 
   namespace :microgreens do
+    resource :home
     resources :donations
     resources :fulfillments
+    resources :greens
     resources :line_items
     resources :orders
     resources :products
