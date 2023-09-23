@@ -34,13 +34,17 @@
               url_for([:microgreens, :products]), 
               class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
 
-            <%= link_to 'Orders', 
-              url_for([:microgreens, :orders]), 
-              class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <% if policy([:microgreens, Order]).index? %>
+              <%= link_to 'Orders', 
+                url_for([:microgreens, :orders]), 
+                class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <% end %>
 
-            <%= link_to 'Donations',
-              url_for([:microgreens, :donations]),
-              class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <% if policy([:microgreens, Donation]).index? %>
+              <%= link_to 'Donations',
+                url_for([:microgreens, :donations]),
+                class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <% end %>
 
             <%#= link_to 'MicroCNC Services', microcnc_posts_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
             <%#= link_to 'Group Directory', root_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
@@ -53,11 +57,19 @@
       <div class="float-right">
         <div id="authentication" class="w-full block ml-8 flex-grow lg:flex lg:items-center lg:w-auto float-right">
           <%- if current_user %>
-            <%= link_to 'Log Out', destroy_user_session_path, method: "delete", class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <%= link_to 'Log Out', 
+              destroy_user_session_path,  
+              method: "delete", 
+              data: { turbo_method: :delete }, 
+              class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
           <%- else %>
-            <%= link_to 'Sign In', new_user_session_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <%= link_to 'Sign In', 
+              new_user_session_path, 
+              class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
             <div class="mr-4">|</div>
-            <%= link_to 'Sign Up', new_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+            <%= link_to 'Sign Up', 
+              new_user_registration_path, 
+              class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
           <%- end %>
         </div>
       </div>

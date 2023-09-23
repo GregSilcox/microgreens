@@ -17,3 +17,6 @@ donor = User.find_or_create_by(email: 'greg.silcox+donor@gmail.com') do |user|
   user.password_confirmation = 'Hardword.7726'
   user.admin = false
 end
+
+Group.find_or_create_by name: "microgreens"
+Group.find_or_create_by name: "microcnc"

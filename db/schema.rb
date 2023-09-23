@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_10_213016) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_074018) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_213016) do
     t.text "nutrition"
     t.text "apperance"
     t.text "flavor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +81,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_213016) do
     t.string "title"
     t.text "description"
     t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.string "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
