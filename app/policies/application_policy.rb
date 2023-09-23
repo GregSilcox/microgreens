@@ -17,7 +17,7 @@ class ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.present? && user.admin?
   end
 
   def new?
@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.admin? && order.present?
+    user.present? && user.admin?
   end
 
   def edit?

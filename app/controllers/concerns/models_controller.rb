@@ -15,12 +15,12 @@ module ModelsController
 
     def new
       @model = model_constant.new
-      authorize @model
+      authorize [:microgreens, @model]
     end
 
     def create
       @model = model_constant.new(model_params)
-      authorize @model
+      authorize [:microgreens, @model]
 
       respond_to do |format|
         if @model.save
@@ -75,7 +75,7 @@ module ModelsController
 
     def find_model
       @model = model_constant.find params[:id]
-      authorize @model
+      authorize [:microgreens, @model]
     end
   end
 end
