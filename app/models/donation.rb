@@ -1,5 +1,7 @@
 class Donation < ApplicationRecord
-  KINDS = [:check, :card, :cash].freeze
+  KINDS = ["check", "card", "cash"].freeze
+
+  belongs_to :user
 
   validates :kind, inclusion: { in: KINDS }
   validates :amount, numericality: { greater_than: 0.00 }

@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_23_074018) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crops", force: :cascade do |t|
+    t.text "notes"
+    t.datetime "sown_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "donations", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -93,6 +100,19 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_23_074018) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trays", force: :cascade do |t|
+    t.bigint "green_id", null: false
+    t.bigint "crop_id", null: false
+    t.integer "weight"
+    t.integer "tray_number"
+    t.datetime "sown_at"
+    t.datetime "harvested_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crop_id"], name: "index_trays_on_crop_id"
+    t.index ["green_id"], name: "index_trays_on_green_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -125,4 +145,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_23_074018) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "trays", "crops"
+  add_foreign_key "trays", "greens"
 end

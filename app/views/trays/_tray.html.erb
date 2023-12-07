@@ -1,0 +1,37 @@
+<div id="<%= dom_id tray %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Green:</strong>
+    <%= tray.green_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Crop:</strong>
+    <%= tray.crop_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight:</strong>
+    <%= tray.weight %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tray number:</strong>
+    <%= tray.tray_number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Sown at:</strong>
+    <%= tray.sown_at %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Harvested at:</strong>
+    <%= tray.harvested_at %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this tray", tray, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this tray', edit_tray_path(tray), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

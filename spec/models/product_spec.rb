@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  it "can be created" do
-    model = Product.create title: "Test Post"
-    expect( model ).to be_a Product
-  end
+  let(:product) { build :product, title: "Microgreens", description: "Yummy" }
+  let(:invalid) { build :product, title: nil }
 
-  it "must have a title" do
-    model = Product.create title: nil
-    expect(model).not_to be_valid
-  end
+  it ("is a product") { expect( product ).to be_a Product }
+  it ("is valid") { expect( product ).to be_valid }
+  it ("must have a title") { expect(invalid).not_to be_valid }
 end

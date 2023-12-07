@@ -20,3 +20,23 @@ end
 
 Group.find_or_create_by name: "microgreens"
 Group.find_or_create_by name: "microcnc"
+
+crop = Crop.find_or_create_by(id: 14) do |crop|
+  crop.notes = "No sunflowers or peas."
+  crop.sown_at = DateTime.parse("2023-11-09")
+end
+
+[ ['Radish', 300, 4],
+  ['Broccoli', 202, 5],
+  ['Kale', 229, 6],
+  ['Kale', 190, 7],
+  ['Kohlrabi', 163, 8],
+  ['Mustard', 189, 9],
+  ['Chia', 147, 10],
+  ['Beet', 155, 11]
+].map do |green|
+  g = Green.find_or_create_by name: green[0]
+
+  Tray.find_or_create_by green: g, crop: crop, weight: green[1], tray_number: green[2],
+    sown_at: DateTime.parse("2023-11-09"), harvested_at: DateTime.parse("2023-11-20")
+end

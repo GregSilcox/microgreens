@@ -1,5 +1,5 @@
 class LineItem < ApplicationRecord
   belongs_to :order
   belongs_to :product
-  belongs_to :delivery
+  has_one :fulfillment
 end

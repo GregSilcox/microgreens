@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Green, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:green) { create :green }
+  it() { expect(green.name).to eq "Broccoli" }
 end
