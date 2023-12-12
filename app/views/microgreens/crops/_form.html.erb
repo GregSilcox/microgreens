@@ -1,10 +1,10 @@
-<%= form_with(model: crop, class: "contents") do |form| %>
-  <% if crop.errors.any? %>
+<%= form_for [:microgreens, @model], class: "contents" do |form| %>
+  <% if @model.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+      <h2><%= pluralize(@model.errors.count, "error") %> prohibited this crop from being saved:</h2>
 
       <ul>
-        <% crop.errors.each do |error| %>
+        <% @model.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

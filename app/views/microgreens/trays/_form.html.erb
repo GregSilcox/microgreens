@@ -1,10 +1,10 @@
-<%= form_with(model: tray, class: "contents") do |form| %>
-  <% if tray.errors.any? %>
+<%= form_with model: [:microgreens, @model], class: "contents" do |form| %>
+  <% if @model.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(tray.errors.count, "error") %> prohibited this tray from being saved:</h2>
+      <h2><%= pluralize(@model.errors.count, "error") %> prohibited this tray from being saved:</h2>
 
       <ul>
-        <% tray.errors.each do |error| %>
+        <% @model.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

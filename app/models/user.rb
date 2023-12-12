@@ -10,8 +10,4 @@ class User < ApplicationRecord
 
   has_many :roles
   has_many :groups, through: :roles
-
-  def admin?
-    email == "greg.silcox@gmail.com"
-  end
 end
