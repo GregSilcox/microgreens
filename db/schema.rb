@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[8.0].define(version: 2023_11_22_004408) do
   create_table "crops", force: :cascade do |t|
     t.text "notes"
     t.datetime "sown_at"
@@ -22,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   end
 
   create_table "donations", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.decimal "amount", precision: 10, scale: 2, null: false
     t.datetime "donated_at"
     t.string "kind"
@@ -34,7 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   create_table "fulfillments", force: :cascade do |t|
     t.datetime "fulfilled_at"
     t.string "kind"
-    t.bigint "line_item_id", null: false
+    t.integer "line_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["line_item_id"], name: "index_fulfillments_on_line_item_id"
@@ -57,8 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "product_id", null: false
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
     t.string "state"
     t.string "status"
     t.datetime "delivered_at"
@@ -69,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "state"
     t.string "status"
     t.datetime "created_at", null: false
@@ -101,8 +98,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_004408) do
   end
 
   create_table "trays", force: :cascade do |t|
-    t.bigint "green_id", null: false
-    t.bigint "crop_id", null: false
+    t.integer "green_id", null: false
+    t.integer "crop_id", null: false
     t.integer "weight"
     t.integer "tray_number"
     t.datetime "sown_at"
